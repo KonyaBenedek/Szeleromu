@@ -34,17 +34,6 @@ namespace WpfApp5
             Betöltés("szeleromu.txt");
             dataGridSzeleromuk.ItemsSource = szeleromuk;
         }
-
-        private void Betöltés(string fileNev)
-        {
-            szeleromuk = new List<Szeleromu>();
-            foreach (var item in File.ReadAllLines(fileNev, Encoding.UTF8))
-            {
-                szeleromuk.Add(new Szeleromu(item));
-            }
-            dataGridSzeleromuk.ItemsSource = szeleromuk;
-        }
-
         private void btnEroEgyseg_Click(object sender, RoutedEventArgs e)
         {
             string helyszin = txtHelyszin.Text;
@@ -84,11 +73,7 @@ namespace WpfApp5
             }
             MessageBox.Show($"Átlagos teljesítmény (2010): {osszeg / darab:F2} W");
         }
-
-        private void btnMaxTeljesitmeny_Click(object sender, RoutedEventArgs e)
-        {
-            //Nem tudtam
-        }
+        
 
         private void btnJelentesGeneralasa_Click(object sender, RoutedEventArgs e)
         {
@@ -101,6 +86,21 @@ namespace WpfApp5
 
             File.WriteAllText("jelentes.txt", jelentés.ToString());
             MessageBox.Show("Sikeres generálás a következő fileba: jelentes.txt");
+
+            
+        }
+        private void btnMaxTeljesitmeny_Click(object sender, RoutedEventArgs e)
+        {
+            //Nem tudtam
+        }
+        private void Betöltés(string fileNev)
+        {
+            szeleromuk = new List<Szeleromu>();
+            foreach (var item in File.ReadAllLines(fileNev, Encoding.UTF8))
+            {
+                szeleromuk.Add(new Szeleromu(item));
+            }
+            dataGridSzeleromuk.ItemsSource = szeleromuk;
         }
     }
 }
