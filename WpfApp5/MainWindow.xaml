@@ -1,0 +1,34 @@
+﻿<Window x:Class="WpfApp5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10">
+            <Label Content="Helyszín:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox x:Name="txtHelyszin" Width="150"/>
+            <Button x:Name="btnEroEgyseg" Content="Egységek" Margin="55,0,15,0" Click="btnEroEgyseg_Click"/>
+            <Button x:Name="btnÖsszes" Content="Összes szám" Margin="55,0,15,0" Click="btnÖsszes_Click"/>
+            <Button x:Name="btnKategorizal" Content="Kategóriák" Margin="55,0,15,0" Click="btnKategorizal_Click"/>
+        </StackPanel>
+        <ListBox x:Name="listBoxEroEgysegek" Grid.Row="1" Grid.Column="0" Margin="10" Width="300"/>
+        <DataGrid x:Name="dataGridSzeleromuk" Grid.Row="1" Grid.Column="0" AutoGenerateColumns="True" Margin="10"/>
+        <Label x:Name="lblOsszesEroEgyseg" Grid.Column="1" HorizontalAlignment="Left" Margin="27,10,0,10" Width="116"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" Margin="10">
+            <Button x:Name="btnAtlagTeljesitmeny" Content="Átlagos teljesítmény (2010)" Margin="0,125,0,0" Click="btnAtlagTeljesitmeny_Click"/>
+            <Button x:Name="btnMaxTeljesitmeny" Content="Legnagyobb teljesítmény" Margin="0,15,0,5" Click="btnMaxTeljesitmeny_Click"/>
+            <Button x:Name="btnJelentesGeneralasa" Content="Jelentés generálása" Margin="0 15 0 0" Click="btnJelentesGeneralasa_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
